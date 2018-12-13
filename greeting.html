@@ -11,44 +11,36 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <script type="text/babel">
+      
       class Greeting extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {number: 0};
+          this.handleclick = this.handleclick.bind(this);
+        }  
+      
+        handleclick(){
+          this.setState({
+            number: this.state.number + 1
+          });
+        }
         render() {
           return (
             <div>
-              <h1>Hello World!</h1>
+              <h1>Hi there! Happy Holidays!</h1>
+              <p>From {this.props.name}</p>
+              <button type="button" onClick={this.handleclick}>Click Me!</button>
+              <p>You clicked the button {this.state.number} time(s).</p>
             </div>
           );
         }
+
       }
  
       ReactDOM.render(
-        <Greeting />, document.getElementById('app')
+        <Greeting name="Kevin"/>, document.getElementById('app')
       );
-       
-      const e = React.createElement;
-
-      class LikeButton extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = { liked: false };
-        }
-
-        render() {
-          if (this.state.liked) {
-            return 'You liked this.';
-          }
-
-          return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
-          );
-        }
-      }
-
-      const domContainer = document.querySelector('#like_button_container');
-      ReactDOM.render(e(LikeButton), domContainer);
- 
+      
      </script>
   </body>
 
