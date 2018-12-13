@@ -6,7 +6,6 @@
 
   <body>
     <div id="app"></div>
-    <div id="like_button_container"></div>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
@@ -16,10 +15,10 @@
         constructor(props){
           super(props);
           this.state = {number: 0};
-          this.handleclick = this.handleclick.bind(this);
+          this.handleClick = this.handleClick.bind(this);
         }  
       
-        handleclick(){
+        handleClick(){
           this.setState({
             number: this.state.number + 1
           });
@@ -29,7 +28,7 @@
             <div>
               <h1>Hi there! Happy Holidays!</h1>
               <p>From {this.props.name}</p>
-              <button type="button" onClick={this.handleclick}>Click Me!</button>
+              <button type="button" onClick={this.handleClick}>Click Me!</button>
               <p>You clicked the button {this.state.number} time(s).</p>
             </div>
           );
